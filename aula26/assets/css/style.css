@@ -61,10 +61,14 @@ form button:hover {
 }
 
 form button:active {
-    background: rgb(164, 31, 31);
+    background: rgb(128, 163, 163);
 }
 
-.paragrafo-resultado {
+.paragrafo-resultado, .bad {
     background: rgb(114, 234, 156);
     padding: 10px 20px;
+}
+
+.bad {
+    background: rgb(236, 84, 84);
 }
