@@ -23,11 +23,20 @@ console.log('ms', data.getMilliseconds());
 console.log('Dia da semana', data.getDay()); // 0 - Domingo e 6 - Sábado
 console.log(data.toString());
 
+function zeroAEsquerda(num) {
+    return num >= 10 ? num : `0${num}`;
+}
+
 function formataData(data1) {
-    
-    
+    const dia = zeroAEsquerda(data1.getDate());
+    const mes = zeroAEsquerda(data1.getMonth());
+    const ano = zeroAEsquerda(data1.getFullYear());
+    const hora = zeroAEsquerda(data1.getHours());
+    const min = zeroAEsquerda(data1.getMinutes());
+    const seg = zeroAEsquerda(data1.getSeconds());
+    return `Hoje é exatamente ${dia}/${mes}/${ano} ${hora}:${min}:${seg}`;
 }
 
 const data1 = new Date();
 const dataBrasil = formataData(data1);
-console.log(dataBrasil)
+console.log(dataBrasil);
