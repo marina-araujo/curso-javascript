@@ -4,15 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício de try catch</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 >Par ou ímpar?</h1>
-    <button onclick="parOuImpar()">Clique para iniciar</button>
-    <div id="output"><br>O resultado irá aparecer aqui...</div>
+    <section id="container">
+        <h1 >Par ou ímpar?</h1>
+        <button onclick="parOuImpar()">Clique para iniciar</button>
+        <div id="output">
+            <br>O resultado irá aparecer aqui...
+        </div>
+    </section>
     <script>
+        const output = document.querySelector('#output');
         function parOuImpar() {
-            let num = prompt("Digite um número")
-        }
+            try {
+                var num = prompt("Digite um número")
+                num = parseFloat(num);
+                if(isNaN(num)){
+                    throw Error("digite apenas números");
+                }
+
+                var mensagem = '<br> O número ' + num + ' que foi digitado é '
+
+                if (num % 2 == 0) {
+                    mensagem += "PAR!"
+                } else {
+                    mensagem += "ÍMPAR!"
+                }
+                output.innerHTML = mensagem;
+            } catch(e) {
+                alert ("deu ruim: " + e.message)
+            }
+        };
+
+        
+        alert("acabou o programa");
+
+        
     </script>
 </body>
 </html>
