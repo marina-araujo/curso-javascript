@@ -139,5 +139,18 @@ function f3Callback() {
     console.log('Ola mundo!');
 }
 
+// funções imediatas (IIFE)
+// servem para não poluir o escopo global e para evitar que sejam interferidas pelo escopo global e outras bibliotecas
+
+
+
+(function () {
+    const nome5 = 'Rita';
+    console.log(nome5); // Isso imprimirá 'Rita'
+})();
+
+const nome5 = 'Roberta';
+console.log(nome5); // Isso imprimirá 'Roberta
+
 
 
