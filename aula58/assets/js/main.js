@@ -31,3 +31,75 @@ function recursiva(max) {
 }
 
 recursiva(0);
+
+// função geradora
+
+function* geradora1() {
+    // código qualquer...
+    yield 'Valor 1';
+    // código qualquer...
+    yield 'Valor 2';
+    // código qualquer...
+    yield 'Valor 3';
+}
+
+const g1 = geradora1();
+
+console.log(g1.next().value);
+console.log(g1.next().value);
+console.log(g1.next().value);
+console.log(g1.next()); // o done vai dar true pq já vai ter terminado com todos os nexts
+
+
+
+function* geradora2() {
+    let i = 0;
+
+    while (true) {
+        yield i;
+        i++;
+    }
+}
+const g2 = geradora2();
+console.log(g2.next().value);
+console.log(g2.next().value);
+console.log(g2.next().value);
+console.log(g2.next().value);
+console.log(g2.next().value);
+console.log(g2.next().value);
+
+function* geradora3() {
+    yield 10;
+    yield 20;
+    yield 30;
+}
+
+function* geradora4() {
+    yield* geradora3();
+    yield 40;
+    yield 50;
+    yield 60;
+}
+
+const g4 = geradora4();
+for (let valor of g4) {
+    console.log(valor);
+}
+
+function* geradora5() {
+    yield function () {
+        console.log('vim do y1');
+    }
+    yield function () {
+    console.log('vim do y2');
+    }
+}
+
+
+
+const g5 = geradora5();
+const func1 = g5.next().value;
+const func2 = g5.next().value;
+
+func1();
+func2();
