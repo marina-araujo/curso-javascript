@@ -39,8 +39,11 @@ esperaAi('Fase 1', rand(0, 3))
 //maneira BEM mais simples e menos verbosa (com async e await):
 async function executa() {
     try {
-        const fase1 = await esperaAi('Fase 1', rand(0, 3));
+        const fase1 = await esperaAi('Fase 1', 1000);
         console.log(fase1);
+        setTimeout(() => {
+            console.log('Essa promise estava pendente', fase1);
+        }, 1100);
         const fase2 = await esperaAi('Fase 2', rand(0, 3));
         console.log(fase2);
         const fase3 = await esperaAi(3, rand(0, 3));
